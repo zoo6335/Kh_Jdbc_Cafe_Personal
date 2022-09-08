@@ -14,13 +14,14 @@ import java.util.Scanner;
 
 public class JdbcMain {
     public static void main(String[] args) {
-        menuSelect();
+        menuManage();       // 1. 메뉴 관리 메소드
+        salesManage();      // 2. 매출 관리 메소드
     }
-    public static void menuSelect() {
+    public static void menuManage() {
         Scanner sc = new Scanner(System.in);
         while(true) {
             System.out.println("==================== ※ 관리자모드 ※ ====================");
-            System.out.println("▼ 메뉴를 선택 하세요 ▼ ");
+            System.out.println("                   ▼ 메뉴 관리 모드 ▼ ");
             System.out.print("①메뉴 조회 ②메뉴 추가 ③메뉴 수정 ④메뉴 삭제 ⑤EXIT : ");
             int sel = sc.nextInt();
             switch(sel) {
@@ -43,6 +44,33 @@ public class JdbcMain {
                     break;
                 case 5 :
                     System.out.println("메뉴를 종료 합니다 (✿◡‿◡)");
+                    return;
+            }
+        }
+    }
+
+    public static void salesManage() {
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            System.out.println("==================== ※ 관리자모드 ※ ====================");
+            System.out.println("                   ▼ 매출 조회 모드 ▼ ");
+            System.out.print("①매출전표 조회 ②일별 매출 조회 ③월별 매출 조회 ④인기 메뉴 조회 ⑤EXIT : ");
+            int sel = sc.nextInt();
+            switch(sel) {
+                case 1:
+
+                    break;
+                case 2 :
+
+                    break;
+                case 3 :
+
+                    break;
+                case 4 :
+
+                    break;
+                case 5 :
+
                     return;
             }
         }

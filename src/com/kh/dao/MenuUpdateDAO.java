@@ -7,11 +7,14 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class MenuUpdateDAO {
+    Connection conn = null;
+    Statement stmt = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    Scanner sc = new Scanner(System.in);
 
     public void menuUpdate() {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        Scanner sc = new Scanner(System.in);
+
 
         System.out.println("=====변경할 메뉴 정보 입력=====");
         System.out.print("메뉴명 : ");
@@ -25,15 +28,16 @@ public class MenuUpdateDAO {
         try {
             conn = Common.getConnection();
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, mname);
-            pstmt.setInt(2, mprice);
-            pstmt.setString(3, category);
+            pstmt.setInt(1, mprice);
+            pstmt.setString(2, category);
+            pstmt.setString(3, mname);
+
             int ret = pstmt.executeUpdate();
             System.out.println("Return : " + ret);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Common.commit(conn);
+//        Common.commit(conn);
         Common.close(pstmt);
         Common.close(conn);
     }
