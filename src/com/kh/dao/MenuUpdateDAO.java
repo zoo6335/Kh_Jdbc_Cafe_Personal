@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class MenuUpdateDAO {
 
-    public void empUpdate() {
+    public void menuUpdate() {
         Connection conn = null;
         PreparedStatement pstmt = null;
         Scanner sc = new Scanner(System.in);

@@ -19,7 +19,7 @@ public class JdbcMain {
     public static void menuSelect() {
         Scanner sc = new Scanner(System.in);
         while(true) {
-            System.out.println("==================== [사장님 MENU 조회] ====================");
+            System.out.println("==================== ※ 관리자모드 ※ ====================");
             System.out.println("▼ 메뉴를 선택 하세요 ▼ ");
             System.out.print("①메뉴 조회 ②메뉴 추가 ③메뉴 수정 ④메뉴 삭제 ⑤EXIT : ");
             int sel = sc.nextInt();
@@ -31,11 +31,11 @@ public class JdbcMain {
                     break;
                 case 2 :
                     MenuInsertDAO insert = new MenuInsertDAO();
-                    insert.empInsert();
+                    insert.menuInsert();
                     break;
                 case 3 :
                     MenuUpdateDAO update = new MenuUpdateDAO();
-                    update.empUpdate();
+                    update.menuUpdate();
                     break;
                 case 4 :
                     MenuDeleteDAO delete = new MenuDeleteDAO();
