@@ -1,10 +1,8 @@
 package com.kh;
-import com.kh.dao.MenuDeleteDAO;
-import com.kh.dao.MenuInsertDAO;
-import com.kh.dao.MenuSelectDao;
-import com.kh.dao.MenuUpdateDAO;
+import com.kh.dao.*;
 import com.kh.util.Common;
 import com.kh.vo.MenuVO;
+import com.kh.vo.SalesVO;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,8 +18,8 @@ public class JdbcMain {
     public static void menuManage() {
         Scanner sc = new Scanner(System.in);
         while(true) {
-            System.out.println("==================== ※ 관리자모드 ※ ====================");
-            System.out.println("                   ▼ 메뉴 관리 모드 ▼ ");
+            System.out.println("======================= ※ 관리자 모드 ※ =======================");
+            System.out.println("                         ▼ 메뉴 관리 ▼ ");
             System.out.print("①메뉴 조회 ②메뉴 추가 ③메뉴 수정 ④메뉴 삭제 ⑤EXIT : ");
             int sel = sc.nextInt();
             switch(sel) {
@@ -52,13 +50,15 @@ public class JdbcMain {
     public static void salesManage() {
         Scanner sc = new Scanner(System.in);
         while(true) {
-            System.out.println("==================== ※ 관리자모드 ※ ====================");
-            System.out.println("                   ▼ 매출 조회 모드 ▼ ");
+            System.out.println("======================= ※ 관리자 모드 ※ =======================");
+            System.out.println("                         ▼ 매출 조회 ▼ ");
             System.out.print("①매출전표 조회 ②일별 매출 조회 ③월별 매출 조회 ④인기 메뉴 조회 ⑤EXIT : ");
             int sel = sc.nextInt();
             switch(sel) {
                 case 1:
-
+                    SalesDAO view = new SalesDAO();
+                    List<SalesVO> list = view.salesList();
+                    view.printSalesSelect(list);
                     break;
                 case 2 :
 
@@ -70,7 +70,7 @@ public class JdbcMain {
 
                     break;
                 case 5 :
-
+                    System.out.println("메뉴를 종료 합니다 (✿◡‿◡)");
                     return;
             }
         }

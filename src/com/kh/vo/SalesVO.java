@@ -8,17 +8,23 @@ public class SalesVO {
     private String category;
     private String oname;
     private int oprice;
-    private int orderno;
-    private Date odate;
+    private int ordnum;
+    private Date orddate;
+    private int salesTotal;
 
-    public SalesVO(String mname, int mprice, String category, String oname, int oprice, int orderno, Date odate) {
+    public SalesVO(String mname, int mprice, String category, String oname, int oprice, int ordnum, Date orddate, int salesTotal) {
         this.mname = mname;
         this.mprice = mprice;
         this.category = category;
         this.oname = oname;
         this.oprice = oprice;
-        this.orderno = orderno;
-        this.odate = odate;
+        this.ordnum = ordnum;
+        this.orddate = orddate;
+        this.salesTotal = salesTotal;
+    }
+
+    public SalesVO() {
+
     }
 
     public String getMname() {
@@ -61,19 +67,27 @@ public class SalesVO {
         this.oprice = oprice;
     }
 
-    public int getOrderno() {
-        return orderno;
+    public int getOrdnum() {
+        return ordnum;
     }
 
-    public void setOrderno(int orderno) {
-        this.orderno = orderno;
+    public void setOrdnum(int ordnum) {
+        this.ordnum = ordnum;
     }
 
-    public Date getOdate() {
-        return odate;
+    public Date getOrddate() {
+        return orddate;
     }
 
-    public void setOdate(Date odate) {
-        this.odate = odate;
+    public void setOrddate(Date orddate) {
+        this.orddate = orddate;
+    }
+
+    public int getSalesTotal() {
+        return salesTotal;
+    }
+
+    public void setSalesTotal(int salesTotal) {
+        this.salesTotal = salesTotal;
     }
 }
