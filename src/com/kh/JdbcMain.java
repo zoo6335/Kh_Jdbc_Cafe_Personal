@@ -1,12 +1,8 @@
 package com.kh;
 import com.kh.dao.*;
-import com.kh.util.Common;
 import com.kh.vo.MenuVO;
 import com.kh.vo.SalesVO;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,7 +34,7 @@ public class JdbcMain {
             int sel = sc.nextInt();
             switch(sel) {
                 case 1:
-                    MenuSelectDao select = new MenuSelectDao();
+                    MenuSelectDAO select = new MenuSelectDAO();
                     List<MenuVO> list = select.listMenu();
                     select.printManuSelect(list);
                     break;
@@ -55,7 +51,7 @@ public class JdbcMain {
                     delete.menuDelete();
                     break;
                 case 5 :
-                    System.out.println("메뉴를 종료 합니다 (✿◡‿◡)");
+                    System.out.println("메뉴를 종료 합니다 (✿◡‿◡)\n");
                     return;
             }
         }
@@ -84,10 +80,12 @@ public class JdbcMain {
                     view3.printMonthSalesSelect(list3);
                     break;
                 case 4 :
-
+                    SalesPopularDAO view4 = new SalesPopularDAO();
+                    List<SalesVO> list4 = view4.popularSalesList();
+                    view4.printPopularSalesSelect(list4);
                     break;
                 case 5 :
-                    System.out.println("메뉴를 종료 합니다 (✿◡‿◡)");
+                    System.out.println("메뉴를 종료 합니다 (✿◡‿◡)\n");
                     return;
             }
         }

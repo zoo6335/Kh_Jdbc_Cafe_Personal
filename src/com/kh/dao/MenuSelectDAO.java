@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class MenuSelectDao {
+public class MenuSelectDAO {
     public List<MenuVO> listMenu() { // select 해서 객체를 리스트에 넣겠다
         Connection conn = null;
         Statement stmt = null;

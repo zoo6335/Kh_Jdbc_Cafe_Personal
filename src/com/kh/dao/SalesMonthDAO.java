@@ -19,20 +19,20 @@ public class SalesMonthDAO {
             try{
                 conn = Common.getConnection();
                 stmt = conn.createStatement();
-                String sql = "SELECT TO_CHAR(ORD.ORDER_DATE, 'MM') 주문일, COUNT(*) 판매량, SUM(MENU.MPRICE + OPT.OPRICE) 총매출액 " +
+                String sql = "SELECT TO_CHAR(ORD.ORDER_DATE, 'MM\"월\"') 주문일, COUNT(*) 판매량, SUM(MENU.MPRICE + OPT.OPRICE) 총매출액 " +
                             "FROM OPTION_INFO OPT, ORDER_INFO ORD, MENU_INFO MENU " +
                             "WHERE OPT.ONAME = ORD.ONAME AND MENU.MNAME = ORD.MNAME " +
-                            "GROUP BY TO_CHAR(ORD.ORDER_DATE, 'MM') " +
+                            "GROUP BY TO_CHAR(ORD.ORDER_DATE, 'MM\"월\"') " +
                             "ORDER BY 주문일 ";
                 rs = stmt.executeQuery(sql); // 한개의 명령어로 여러개의 결과값을 가져오는 것
 
                 while(rs.next()) {
-                    Date orddate = rs.getDate("주문일");
+                    String ordDateM = rs.getString("주문일");
                     int salesRate = rs.getInt("판매량");
                     int salesTotal = rs.getInt("총매출액");
 
                     SalesVO dvo = new SalesVO();
-                    dvo.setOrddate(orddate);
+                    dvo.setOrdDateM(ordDateM);
                     dvo.setSalesRate(salesRate);
                     dvo.setSalesTotal(salesTotal);
                     list.add(dvo); // 생성된 객체를 리스트에 저장
@@ -48,10 +48,10 @@ public class SalesMonthDAO {
         }
 
         public void printMonthSalesSelect(List<SalesVO> list) {
-            System.out.println("  [주문일] [판매량][매출액]");
+            System.out.println(" [월] [판매량][매출액]");
             System.out.println("-------------------------");
             for(SalesVO e : list) {
-                System.out.print(e.getOrddate() + " | ");
+                System.out.print(e.getOrdDateM() + " | ");
                 System.out.print(e.getSalesRate() + " | ");
                 System.out.print(e.getSalesTotal());
                 System.out.println();

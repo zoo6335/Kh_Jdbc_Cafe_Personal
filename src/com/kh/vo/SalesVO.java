@@ -10,10 +10,11 @@ public class SalesVO {
     private int oprice;
     private int ordnum;
     private Date orddate;
+    private String ordDateM;
     private int salesRate;
     private int salesTotal;
 
-    public SalesVO(String mname, int mprice, String category, String oname, int oprice, int ordnum, Date orddate, int salesRate, int salesTotal) {
+    public SalesVO(String mname, int mprice, String category, String oname, int oprice, int ordnum, Date orddate, String ordDateM, int salesRate, int salesTotal) {
         this.mname = mname;
         this.mprice = mprice;
         this.category = category;
@@ -21,12 +22,12 @@ public class SalesVO {
         this.oprice = oprice;
         this.ordnum = ordnum;
         this.orddate = orddate;
+        this.ordDateM = ordDateM;
         this.salesRate = salesRate;
         this.salesTotal = salesTotal;
     }
 
     public SalesVO() {
-
     }
 
     public String getMname() {
@@ -83,6 +84,14 @@ public class SalesVO {
 
     public void setOrddate(Date orddate) {
         this.orddate = orddate;
+    }
+
+    public String getOrdDateM() {
+        return ordDateM;
+    }
+
+    public void setOrdDateM(String ordDateM) {
+        this.ordDateM = ordDateM;
     }
 
     public int getSalesRate() {

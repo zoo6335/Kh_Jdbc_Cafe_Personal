@@ -14,8 +14,6 @@ public class MenuUpdateDAO {
     Scanner sc = new Scanner(System.in);
 
     public void menuUpdate() {
-
-
         System.out.println("=====변경할 메뉴 정보 입력=====");
         System.out.print("메뉴명 : ");
         String mname = sc.next();

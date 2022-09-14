@@ -6,24 +6,15 @@ public class MenuVO {
     private String mname;       // 메뉴명
     private int mprice;         // 가격
     private String category;    // 카테고리
-//    private String oname;       // 추가옵션
-//    private int oprice;         // 추가금액
-
-    // 생성자
 
     public MenuVO(String mname, int mprice, String category) {
         this.mname = mname;
         this.mprice = mprice;
         this.category = category;
-//        this.oname = oname;
-//        this.oprice = oprice;
     }
 
     public MenuVO() {
-
     }
-
-    // getter/setter 생성
 
     public String getMname() {
         return mname;

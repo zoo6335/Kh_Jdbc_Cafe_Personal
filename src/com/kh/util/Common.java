@@ -18,7 +18,7 @@ import java.sql.Statement;
                 // 연결 얻기
                 conn = DriverManager.getConnection(ORACLE_URL, ORACLE_ID, ORACLE_PW);
                 conn.setAutoCommit(false);  // 기본값이 true 여서 이문장이 없어도 기본적으로 오토커밋이 됨
-                System.out.println("(오라클 DB 연결 성공)");
+//                System.out.println("(오라클 DB 연결 성공)");
             } catch(Exception e){
                 e.printStackTrace(); // 에러 리스트(호출관계)를 보여줘라!
             }
@@ -29,7 +29,7 @@ import java.sql.Statement;
             try{
                 if(conn != null && !conn.isClosed()) {
                     conn.close();
-                    System.out.println("(연결 해제 성공)");
+//                    System.out.println("(연결 해제 성공)");
                 }
             } catch (Exception e){
                 e.printStackTrace();
@@ -39,7 +39,7 @@ import java.sql.Statement;
             try{
                 if(stmt != null && !stmt.isClosed()) {
                     stmt.close();
-                    System.out.println("(연결 해제 성공)");
+//                    System.out.println("(연결 해제 성공)");
                 }
             } catch (Exception e){
                 e.printStackTrace();
@@ -49,7 +49,7 @@ import java.sql.Statement;
             try{
                 if(rset != null && !rset.isClosed()) {
                     rset.close();
-                    System.out.println("(연결 해제 성공)");
+//                    System.out.println("(연결 해제 성공)");
                 }
             } catch (Exception e){
                 e.printStackTrace();
@@ -58,7 +58,7 @@ import java.sql.Statement;
         public static void commit(Connection conn){
             try{
                 conn.commit();
-                System.out.println("(연결 해제 성공)");
+//                System.out.println("(연결 해제 성공)");
             }catch (Exception e){
                 e.printStackTrace();
             }
